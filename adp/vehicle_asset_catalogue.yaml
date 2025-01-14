@@ -1,0 +1,73 @@
+vehicle_metadata:
+  - name: Engine
+    options:
+      - name: Type
+        values: ["V6", "V8", "Electric"]
+      - name: Horsepower
+        values: ["250 HP", "400 HP", "600 HP"]
+      - name: Turbocharged
+        values: ["Yes", "No"]
+
+  - name: Transmission
+    options:
+      - name: Type
+        values: ["Manual", "Automatic", "CVT"]
+      - name: Gears
+        values: ["5-speed", "6-speed", "8-speed"]
+
+  - name: Wheels
+    options:
+      - name: Size
+        values: ["17 inch", "18 inch", "19 inch"]
+      - name: Material
+        values: ["Alloy", "Steel", "Carbon Fiber"]
+      - name: Tire Type
+        values: ["All-Season", "Performance", "Off-Road"]
+
+vehicle_version_configurations:
+  - name: Standard Package
+    options:
+      - name: Engine
+        sub_options:
+          - name: Type
+            values: ["V6"]
+          - name: Horsepower
+            values: ["250 HP"]
+      - name: Transmission
+        sub_options:
+          - name: Type
+            values: ["Manual"]
+          - name: Gears
+            values: ["5-speed"]
+      - name: Wheels
+        sub_options:
+          - name: Size
+            values: ["17 inch"]
+          - name: Tire Type
+            values: ["All-Season"]
+
+  - name: Performance Package
+    options:
+      - name: Engine
+        sub_options:
+          - name: Type
+            values: ["V8"]
+          - name: Horsepower
+            values: ["600 HP"]
+          - name: Turbocharged
+            values: ["Yes"]
+      - name: Transmission
+        sub_options:
+          - name: Type
+            values: ["Automatic"]
+          - name: Gears
+            values: ["8-speed"]
+      - name: Wheels
+        sub_options:
+          - name: Size
+            values: ["19 inch"]
+          - name: Material
+            values: ["Carbon Fiber"]
+          - name: Tire Type
+            values: ["Performance"]
+

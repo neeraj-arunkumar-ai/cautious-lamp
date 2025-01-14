@@ -1,0 +1,227 @@
+test_groups:
+- name: ci_testing_storage
+  scenario:
+  - scenarios/ci_testing/storage
+- name: managed_tests
+  scenario:
+  - scenarios/managed_tests
+- name: smoketest
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/base
+  - scenarios/ci_testing/test_sets/smoketest/gen2_3
+  - scenarios/ci_testing/test_sets/smoketest/lc_enabled
+- name: smoketest_full
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/base
+  - scenarios/ci_testing/test_sets/smoketest/bpc
+  - scenarios/ci_testing/test_sets/smoketest/bridge
+  - scenarios/ci_testing/test_sets/smoketest/gen2_3
+  - scenarios/ci_testing/test_sets/smoketest/lc_enabled
+  - scenarios/ci_testing/test_sets/smoketest/metriclib
+  - scenarios/ci_testing/test_sets/smoketest/perception_simulation
+  - scenarios/ci_testing/test_sets/smoketest/world_modeler
+- name: smoketest_vdm
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/base
+  - scenarios/ci_testing/test_sets/smoketest/bpc
+  - scenarios/ci_testing/test_sets/smoketest/gen2_3
+  - scenarios/ci_testing/test_sets/smoketest/lc_enabled
+  - scenarios/ci_testing/test_sets/smoketest/world_modeler
+- name: smoketest_deployment_tags
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/additional_tpp
+  - scenarios/ci_testing/test_sets/smoketest/bpc
+  - scenarios/ci_testing/test_sets/smoketest/bridge
+  - scenarios/ci_testing/test_sets/smoketest/localization
+  - scenarios/ci_testing/test_sets/smoketest/metriclib
+  - scenarios/ci_testing/test_sets/smoketest/perception_simulation
+  - scenarios/ci_testing/test_sets/smoketest/world_modeler
+- name: smoketest_lc_disabled
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/base
+  - scenarios/ci_testing/test_sets/smoketest/gen2_3
+  - scenarios/ci_testing/test_sets/smoketest/lc_disabled
+- name: smoketest_bridge
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/base
+  - scenarios/ci_testing/test_sets/smoketest/gen2_3
+  - scenarios/ci_testing/test_sets/smoketest/lc_enabled
+  - scenarios/ci_testing/test_sets/smoketest/bridge
+  - scenarios/ci_testing/test_sets/smoketest/perception_simulation
+- name: smoketest_behaviors
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/bpc
+- name: smoketest_metriclib
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/metriclib
+- name: smoketest_motion_control
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/base
+  - scenarios/ci_testing/test_sets/smoketest/gen2_3
+  - scenarios/ci_testing/test_sets/smoketest/lc_enabled
+  - scenarios/ci_testing/test_sets/smoketest/motion_control
+- name: smoketest_prev_lat_planner
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/gen2_3_prev_lat_planner
+- name: smoketest_world_modeler
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/world_modeler
+- name: bpc_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/global_planning
+  - scenarios/ci_testing/test_sets/regression/global_planning/routing
+  - scenarios/ci_testing/test_sets/regression/policy_planning
+  - scenarios/ci_testing/test_sets/regression/policy_planning/intersections
+  - scenarios/ci_testing/test_sets/regression/local_planning
+  - scenarios/ci_testing/test_sets/regression/local_planning/lane_change
+  - scenarios/ci_testing/test_sets/regression/local_planning/lateral_planner
+- name: motion_control_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/motion_control/lateral_control/lane_keeping
+  - scenarios/ci_testing/test_sets/regression/motion_control/lateral_control/merge
+  - scenarios/ci_testing/test_sets/regression/motion_control/longitudinal_control/traffic_light_intersections_stop
+  - scenarios/ci_testing/test_sets/regression/motion_control/longitudinal_control/highway_driving
+  - scenarios/ci_testing/test_sets/regression/motion_control/longitudinal_control/acc_behavior
+- name: global_planning_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/global_planning
+  - scenarios/ci_testing/test_sets/regression/global_planning/awz
+  - scenarios/ci_testing/test_sets/regression/global_planning/routing
+- name: local_planning_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/local_planning
+  - scenarios/ci_testing/test_sets/regression/local_planning/lane_change
+  - scenarios/ci_testing/test_sets/regression/local_planning/lateral_planner
+- name: lateral_planner_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/local_planning/lateral_planner
+- name: lon_planner_ulc_regression
+  scenario:
+  - scenarios/test_progression_plan/common/unforced_lane_changes/TPP_CMN_ULC_03
+- name: lon_planner_ending_lane_regression
+  scenario:
+  - scenarios/test_progression_plan/Yosemite_sam/ending_lanes/tpp_phase_3
+- name: lon_planner_intersection_regression
+  scenario:
+  - scenarios/test_progression_plan/Rattlesnake/traffic_light_intersections
+  - scenarios/test_progression_plan/ACME/stop_sign_intersections
+- name: lon_planner_acc_regression
+  scenario:
+  - scenarios/test_progression_plan/common/acc
+- name: lon_planner_lane_keep_regression
+  scenario:
+  - scenarios/test_progression_plan/ACME/lane_keeping/emerging_lanes/sedillo_hill_off_ramp_with_traffic.scn.yaml
+  - scenarios/test_progression_plan/ACME/lane_keeping/emerging_lanes/sedillo_hill_off_ramp.scn.yaml
+  - scenarios/test_progression_plan/Rattlesnake/cmn_lane_keep
+  - scenarios/test_progression_plan/Rattlesnake/lane_keeping
+  - scenarios/test_progression_plan/Yosemite_sam/cmn_lane_keep
+- name: policy_planning_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/policy_planning
+  - scenarios/ci_testing/test_sets/regression/policy_planning/intersections
+- name: asif_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/asif
+- name: asif_log_replay
+  scenario:
+  - scenarios/perception/ort/labeled/asif_log_replay
+- name: asif_llod_lrod_vision_awz
+  scenario:
+  - scenarios/perception/awz/vision
+- name: asif_llod_lrod_vision_pca_awz
+  scenario:
+  - scenarios/perception/awz/vision_pca
+- name: asif_llod_lrod_labeled
+  scenario:
+  - scenarios/perception/ort/labeled/asif
+- name: asif_llod_lrod_synthetic_labeled
+  scenario:
+  - scenarios/perception/synthetic/asif
+- name: asif_llod_lrod_vision_labeled
+  scenario:
+  - scenarios/perception/ort/labeled/asif_llod_lrod_vision
+- name: asif_llod_lrod_vision_pca_labeled
+  scenario:
+  - scenarios/perception/ort/labeled/asif_llod_lrod_vision_pca
+- name: asif_llod_labeled
+  scenario:
+  - scenarios/perception/ort/labeled/asif_llod
+- name: asif_glod_grod_labeled
+  scenario:
+  - scenarios/perception/ort/labeled/asif_glod_grod
+- name: asif_llod_lrod_pa_labeled
+  scenario:
+  - scenarios/perception/ort/labeled/asif_llod_lrod_pa
+- name: asif_glod_grod_pa_labeled
+  scenario:
+  - scenarios/perception/ort/labeled/asif_glod_grod_pa
+- name: asif_llod_lrod_unlabeled
+  scenario:
+  - scenarios/perception/ort/unlabeled/asif
+- name: asif_llod_lrod_vision_unlabeled
+  scenario:
+  - scenarios/perception/ort/unlabeled/asif_llod_lrod_vision
+- name: asif_llod_lrod_vision_pca_unlabeled
+  scenario:
+  - scenarios/perception/ort/unlabeled/asif_llod_lrod_vision_pca
+- name: asif_glod_grod_unlabeled
+  scenario:
+  - scenarios/perception/ort/unlabeled/asif_glod_grod
+- name: asif_llod_unlabeled
+  scenario:
+  - scenarios/perception/ort/unlabeled/asif_llod
+- name: asif_glod_grod_pa_unlabeled
+  scenario:
+  - scenarios/perception/ort/unlabeled/asif_glod_grod_pa
+- name: asif_llod_lrod_pa_unlabeled
+  scenario:
+  - scenarios/perception/ort/unlabeled/asif_llod_lrod_pa
+- name: lane_offset_estimation_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/lane_offset_estimation/
+- name: regression_localization
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/localization/
+- name: smoketest_localization
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/localization/
+- name: lidar_feature_detection_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/regression/lidar_feature_detection/
+  - scenarios/blauer_adversarial_terrain.scn.yaml
+- name: smoketest_scenarios
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/scenarios/
+- name: map_validation
+  scenario:
+  - scenarios/ci_testing/test_sets/smoketest/base
+  - scenarios/ci_testing/test_sets/smoketest/map_validation_scenarios/
+- name: release_stage3_regression
+  scenario:
+  - scenarios/ci_testing/test_sets/release_stage3/regression/base
+  - scenarios/ci_testing/test_sets/release_stage3/regression/gen2_3
+  - scenarios/ci_testing/test_sets/release_stage3/regression/lc_enabled
+- name: release_stage3_extended
+  scenario:
+  - scenarios/ci_testing/test_sets/release_stage3/extended/asif
+  - scenarios/ci_testing/test_sets/release_stage3/extended/localization
+- name: managed_tests_regression
+  scenario:
+  - scenarios/managed_tests/regression
+- name: managed_tests_progression
+  scenario:
+  - scenarios/managed_tests/progression
+default_env:
+  plugins:
+  - name: python_server
+  - name: metriclib_server
+    port: 10018
+  sim_flag:
+  - --track_sim_plugin_performance --container_name simian_bridge_x86_64 --image_name
+    "588188713524.dkr.ecr.us-east-1.amazonaws.com/virtual-driver-components/cascadia_deployment_x86_64:world_modeler_PR-306-f063c59-e27a8ee-6018045"
+    --no_default_customer_server --no_use_docker_in_k8s --v2api --customer_server_address
+    "{SHORT_RUN_ID}.sim.internal.cloud.torc.tech" --customer_server_timeout_s 300
+    --customer_server_teardown_cmd "/home/torc/scripts/teardown.sh" --remote_stack_pod_name
+    ad-stack-0 --remote_stack_namespace "SHORT_RUN_ID" --customer_record --customer_server_preupload_cmd
+    "/home/torc/scripts/collect-artifacts.sh" --merge_output_logs
+

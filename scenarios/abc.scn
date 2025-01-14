@@ -1,0 +1,362 @@
+include:
+- file: scenario://workspace/include/default_test_vehicle_shape.inc.yaml
+metadata:
+  name: 3d_editing_demo
+  scenario_version: v0.96
+  comments:
+  - author: applied
+    message: Demos 3D Editing
+  related_scenarios:
+  - key: demo_motion_types_with_motion_models.scn.yaml
+sim_end:
+  until:
+  - timeout: {secs: 15s}
+map:
+  key: eight_short_lanes
+projection_settings:
+  utm:
+    north: true
+    zone: 10
+vehicle:
+  mesh_name: applied:car
+  shape:
+    front_edge_to_center: 3.8
+    back_edge_to_center: 1.072
+    left_edge_to_center: 0.926
+    right_edge_to_center: 0.926
+    height: 1.478
+trip_agent:
+  behavior:
+  - generate_route:
+      dest: {utm: {x: 196.4989765421458, y: 88}}
+      start: {utm: {x: 170.05139768509633, y: 88}}
+agents:
+- ego:
+    initial_position:
+      point: {utm: {x: 170.05139768509633, y: 88}}
+      heading: 0
+    initial_velocity_mps: 0
+    behaviors:
+    - smooth_lane_keeping:
+        constant_velocity:
+        params:
+          distance: 10
+- obstacle:
+    name: "constant velocity"
+    behaviors:
+    - path_following:
+        constant_velocity:
+        pose_b_spline:
+          default_tangent_distance: 3
+          poses:
+          - y: 96
+            x: 195
+            heading: 0
+    model:
+      static:
+        point:
+        - y: 0.9
+          x: 2.3
+        - y: -0.9
+          x: 2.3
+        - y: -0.9
+          x: -2.3
+        - y: 0.9
+          x: -2.3
+        height: 1.5
+    initial_state:
+      point:
+        utm:
+          x: 105
+          y: 96
+      speed_mps: 7
+      heading: 0
+    type: VEHICLE
+    id: 1
+- obstacle_3d:
+    name: "rami obstacle 3d"
+    id: 10
+    type: TRUCK
+    model:
+      static:
+        height: 1.5
+        point:
+        - {x: -0.5, y: 0.5}
+        - {x: 0.5, y: -0.5}
+        - {x: -0.5, y: -0.5}
+        - {x: -0.5, y: 0.5}
+    initial_state:
+      pose_spec:
+        px: 170
+        py: 70
+        pz: 0
+        rpy:
+          roll: 0.3
+          pitch: 1.5
+          yaw: 0.34
+      longitudinal_velocity:
+        speed: 4
+      longitudinal_acceleration:
+        accel: 3
+    behaviors:
+    - path_following:
+        constant_velocity: {}
+        pose_b_spline:
+          default_tangent_distance: 3.2
+          poses:
+          - pose_spec:
+              px: 175
+              py: 70
+              pz: 3
+              rpy:
+                roll: 1
+                pitch: 0
+                yaw: 1
+          - pose_spec:
+              px: 180
+              py: 90
+              pz: 5
+              rpy:
+                roll: 0
+                yaw: 0.45
+
+- obstacle:
+    name: "motion profile"
+    behaviors:
+    - path_following:
+        motion_profile:
+          phases:
+          - hold_velocity:
+              duration: 1
+          - ramp_acceleration:
+              rate: 5
+              target: 2
+          - ramp_velocity:
+              rate: 2
+              target: 15
+          - hold_velocity:
+              duration: 1
+          - ramp_acceleration:
+              target: -3
+              rate: -3
+        pose_b_spline:
+          default_tangent_distance: 3
+          poses:
+          - y: 92
+            x: 195
+            heading: 0
+    model:
+      static:
+        height: 4.1
+        point:
+        - x: 10.5
+          y: 1.3
+        - x: 10.5
+          y: -1.3
+        - x: -10.5
+          y: -1.3
+        - x: -10.5
+          y: 1.3
+    initial_state:
+      point:
+        utm:
+          x: 105
+          y: 92
+      speed_mps: 7
+      heading: 0
+    type: TRUCK
+    id: 2
+- obstacle:
+    name: "pedestrian"
+    behaviors:
+    - path_following:
+        constant_velocity:
+        pose_b_spline:
+          default_tangent_distance: 2
+          poses:
+          - y: 76
+            x: 121.55494076607825
+            heading: 0.178
+          - y: 84
+            x: 130.92181788492186
+            heading: 0
+          - y: 76
+            x: 141.53761195294476
+            heading: -0.197
+          - y: 80
+            x: 150.9669349192473
+            heading: 0.401
+    model:
+      static:
+        point:
+        - y: 0.35
+          x: 0.0
+        - y: 0.25
+          x: 0.2
+        - y: -0.25
+          x: 0.2
+        - y: -0.35
+          x: 0.0
+        - y: -0.25
+          x: -0.2
+        - y: 0.25
+          x: -0.2
+        height: 1.65
+    initial_state:
+      point:
+        utm:
+          x: 108.62865034207408
+          y: 80
+      speed_mps: 2
+      heading: 0
+    type: PEDESTRIAN
+    id: 4
+- obstacle:
+    name: "bicycle"
+    behaviors:
+    - lane_change:
+        geometric:
+          endpoint:
+            longitudinal_offset: 30
+            lateral_offset: -4
+          center:
+            longitudinal_offset: 15
+            lateral_offset: -2
+    model:
+      static:
+        point:
+        - y: 0.35
+          x: 1.5
+        - y: -0.35
+          x: 1.5
+        - y: -0.35
+          x: -1.5
+        - y: 0.35
+          x: -1.5
+        height: 1.5
+    initial_state:
+      point:
+        utm:
+          x: 157.83923886127403
+          y: 85.35070917043592
+      speed_mps: 9
+      heading: 0
+    type: BICYCLE
+    id: 5
+metrics:
+- name: constant velocity speed
+  speed:
+    obstacle_id: 1
+- name: constant velocity accel
+  acceleration:
+    obstacle_id: 1
+- name: constant velocity derived jerk
+  from_number_stat:
+    derivative_of:
+      derivative_of:
+        actor_motion:
+          velocity_magnitude:
+          actor_id: 1
+- name: constant velocity distance
+  distance:
+    obstacle_a:
+      ego:
+    obstacle_b:
+      obstacle_id: 1
+- name: constant velocity derivative of distance to ego
+  from_number_stat:
+    derivative_of:
+      distance_between_obstacles:
+        exact_distance:
+          obstacle_a:
+            ego:
+          obstacle_b:
+            obstacle_id: 1
+
+- name: motion profile speed
+  speed:
+    obstacle_id: 2
+- name: motion profile accel
+  acceleration:
+    obstacle_id: 2
+- name: motion profile derived jerk
+  from_number_stat:
+    derivative_of:
+      derivative_of:
+        actor_motion:
+          velocity_magnitude:
+          actor_id: 2
+- name: motion profile distance
+  distance:
+    obstacle_a:
+      ego:
+    obstacle_b:
+      obstacle_id: 2
+- name: motion profile derivative of distance to ego
+  from_number_stat:
+    derivative_of:
+      distance_between_obstacles:
+        exact_distance:
+          obstacle_a:
+            ego:
+          obstacle_b:
+            obstacle_id: 2
+
+- name: pedestrian speed
+  speed:
+    obstacle_id: 4
+- name: pedestrianaccel
+  acceleration:
+    obstacle_id: 4
+- name: pedestrian derived jerk
+  from_number_stat:
+    derivative_of:
+      derivative_of:
+        actor_motion:
+          velocity_magnitude:
+          actor_id: 4
+- name: pedestrian distance
+  distance:
+    obstacle_a:
+      ego:
+    obstacle_b:
+      obstacle_id: 4
+- name: pedestrian derivative of distance to ego
+  from_number_stat:
+    derivative_of:
+      distance_between_obstacles:
+        exact_distance:
+          obstacle_a:
+            ego:
+          obstacle_b:
+            obstacle_id: 4
+
+- name: bicycle speed
+  speed:
+    obstacle_id: 5
+- name: bicycle accel
+  acceleration:
+    obstacle_id: 5
+- name: bicycle derived jerk
+  from_number_stat:
+    derivative_of:
+      derivative_of:
+        actor_motion:
+          velocity_magnitude:
+          actor_id: 5
+- name: bicycle distance
+  distance:
+    obstacle_a:
+      ego:
+    obstacle_b:
+      obstacle_id: 5
+- name: bicycle derivative of distance to ego
+  from_number_stat:
+    derivative_of:
+      distance_between_obstacles:
+        exact_distance:
+          obstacle_a:
+            ego:
+          obstacle_b:
+            obstacle_id: 5
+
