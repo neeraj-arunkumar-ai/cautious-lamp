@@ -1,4 +1,41 @@
 vehicle_metadata:
+  - name: Tracking Vehicle
+    options:
+      - name: TKV
+        values:
+          - "TKV605"
+          - "TKV703"
+          - "TKV301"
+          - "TKM604"
+          - "TKV301"
+          - "TKV303"
+  - name: VEHICLE_MODEL
+    options:
+      - name: carsim_fmu
+        values:
+          - "L233_CARSIM_TKV605_latest.fmu"
+          - "C223_CARSIM_TKV703_latest.fmu"
+          - "L233_CARSIM_TKV301_latest.fmu"
+          - "L234_CARSIM_TKM604_latest.fmu"
+          - "l233_CARSIM_TKV301_trailer_v99.fmu"
+          - "L233_CARSIM_TKV303.2_v19.fmu"
+    - name: Model Year
+      options:
+        - name: Year
+          values:
+            - "2023"
+            - "2024"
+            - "2025"
+            - "2026"
+    - name: Program
+      options:
+        - name: Program
+          values:
+            - "L223"
+            - "L224"
+            - "C224"
+
+vehicle_version_configurations:
   - name: MCU
     options:
       - name: version
@@ -16,7 +53,6 @@ vehicle_metadata:
               - "ACP30M1262617530CJ_L233_RWL_57CF_22in_GMNA_18JUL24_rev1_.CSV"
               - "cal2.csv"
               - "cal4.csv"
-
   - name: SOC
     options:
       - name: version
@@ -26,22 +62,6 @@ vehicle_metadata:
           - name: calibration
             values:
               - "Default.CSV"
-
-  - name: VEHICLE_MODEL
-    options:
-      - name: version
-        values:
-          - "17.0"
-        sub_options:
-          - name: carsim_fmu
-            values:
-              - "L233_CARSIM_TKV605_latest.fmu"
-              - "C223_CARSIM_TKV703_latest.fmu"
-              - "L233_CARSIM_TKV301_latest.fmu"
-              - "L234_CARSIM_TKM604_latest.fmu"
-              - "l233_CARSIM_TKV301_trailer_v99.fmu"
-              - "L233_CARSIM_TKV303.2_v19.fmu"
-
   - name: EPS
     options:
       - name: version
@@ -51,7 +71,6 @@ vehicle_metadata:
           - name: eps_fmu
             values:
               - "l233_EPS_GMNA_latest.fmu"
-
   - name: SENSOR_FCM
     options:
       - name: version
@@ -67,7 +86,6 @@ vehicle_metadata:
               - "RR"
               - "SLR"
               - "SRR"
-
   - name: SENSOR_LRR
     options:
       - name: version
@@ -83,7 +101,6 @@ vehicle_metadata:
               - "RR"
               - "SLR"
               - "SRR"
-
   - name: SENSOR_SRR
     options:
       - name: version
@@ -99,21 +116,18 @@ vehicle_metadata:
               - "RR"
               - "SLR"
               - "SRR"
-
   - name: BCM
     options:
       - name: version
         values:
           - "24.24.174"
           - "26.26.175"
-
   - name: CGM
     options:
       - name: version
         values:
           - "24.24.174"
           - "26.26.175"
-
   - name: SIMULATION_CORE
     options:
       - name: version
