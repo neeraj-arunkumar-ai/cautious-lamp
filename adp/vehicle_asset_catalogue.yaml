@@ -1,0 +1,122 @@
+vehicle_metadata:
+  - name: MCU
+    options:
+      - name: version
+        values:
+          - "24.24.170.1p1.20230406.6c639645"
+          - "26.26.173.3p0_20231205.1"
+          - "26.26.175.1p0.20240408.a5b1678f"
+        sub_options:
+          - name: calibrations
+            values:
+              - "ACP30M1242417011GM_ASTA_L233_XFD_GMNA_UKZ_SC_28JUN_rev1.CSV"
+              - "cal_b.csv"
+              - "cal1.csv"
+              - "cal2.csv"
+              - "ACP30M1262617530CJ_L233_RWL_57CF_22in_GMNA_18JUL24_rev1_.CSV"
+              - "cal2.csv"
+              - "cal4.csv"
+
+  - name: SOC
+    options:
+      - name: version
+        values:
+          - "v2310.4833c871"
+        sub_options:
+          - name: calibration
+            values:
+              - "Default.CSV"
+
+  - name: VEHICLE_MODEL
+    options:
+      - name: version
+        values:
+          - "17.0"
+        sub_options:
+          - name: carsim_fmu
+            values:
+              - "L233_CARSIM_TKV605_latest.fmu"
+              - "C223_CARSIM_TKV703_latest.fmu"
+              - "L233_CARSIM_TKV301_latest.fmu"
+              - "L234_CARSIM_TKM604_latest.fmu"
+              - "l233_CARSIM_TKV301_trailer_v99.fmu"
+              - "L233_CARSIM_TKV303.2_v19.fmu"
+
+  - name: EPS
+    options:
+      - name: version
+        values:
+          - "9A2_100_D_50_04"
+        sub_options:
+          - name: eps_fmu
+            values:
+              - "l233_EPS_GMNA_latest.fmu"
+
+  - name: SENSOR_FCM
+    options:
+      - name: version
+        values:
+          - "24.24.169 RC3.3"
+        sub_options:
+          - name: location
+            values:
+              - "Default"
+              - "LF"
+              - "RF"
+              - "LR_CR"
+              - "RR"
+              - "SLR"
+              - "SRR"
+
+  - name: SENSOR_LRR
+    options:
+      - name: version
+        values:
+          - "L24.28.10.166"
+        sub_options:
+          - name: location
+            values:
+              - "Default"
+              - "LF"
+              - "RF"
+              - "LR_CR"
+              - "RR"
+              - "SLR"
+              - "SRR"
+
+  - name: SENSOR_SRR
+    options:
+      - name: version
+        values:
+          - "24.24.166 X222 RC8"
+        sub_options:
+          - name: location
+            values:
+              - "Default"
+              - "LF"
+              - "RF"
+              - "LR_CR"
+              - "RR"
+              - "SLR"
+              - "SRR"
+
+  - name: BCM
+    options:
+      - name: version
+        values:
+          - "24.24.174"
+          - "26.26.175"
+
+  - name: CGM
+    options:
+      - name: version
+        values:
+          - "24.24.174"
+          - "26.26.175"
+
+  - name: SIMULATION_CORE
+    options:
+      - name: version
+        values:
+          - "17.0"
+          - "18.0"
