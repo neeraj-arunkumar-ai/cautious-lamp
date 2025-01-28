@@ -18,21 +18,21 @@ vehicle_metadata:
           - "L234_CARSIM_TKM604_latest.fmu"
           - "l233_CARSIM_TKV301_trailer_v99.fmu"
           - "L233_CARSIM_TKV303.2_v19.fmu"
-      - name: Model Year
-        options:
-          - name: Year
-            values:
-              - "2023"
-              - "2024"
-              - "2025"
-              - "2026"
+  - name: Model Year
+    options:
+      - name: Year
+        values:
+          - "2023"
+          - "2024"
+          - "2025"
+          - "2026"
+  - name: Program
+    options:
       - name: Program
-        options:
-          - name: Program
-            values:
-              - "L223"
-              - "L224"
-              - "C224"
+        values:
+          - "L223"
+          - "L224"
+          - "C224"
 
 vehicle_version_configurations:
   - name: MCU
